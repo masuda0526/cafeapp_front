@@ -2,13 +2,9 @@
 
 import * as React from 'react';
 import Button from '@mui/joy/Button';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
 import Modal from '@mui/joy/Modal';
 import ModalDialog from '@mui/joy/ModalDialog';
 import DialogTitle from '@mui/joy/DialogTitle';
-import DialogContent from '@mui/joy/DialogContent';
 import Stack from '@mui/joy/Stack';
 import Add from '@mui/icons-material/Add';
 import CafeNameInput from './InputComponent/CafeNameInput';
@@ -19,17 +15,28 @@ import CafeGoodInput from './InputComponent/CafeGoodInput';
 import CafeBadInput from './InputComponent/CafeBadInput';
 import CafeTravelInput from './InputComponent/CafeTravelInput';
 import CafeFormStore from '@/store/cafeForm';
+import axios from 'axios';
+import { BASE_URL } from '@/constants/site';
+import useDataStore from '@/store/data';
 
 
 const AddCafeForm: React.FC = () => {
   const [open, setOpen] = React.useState<boolean>(false);
+  const cafe = CafeFormStore(state => state.currentCafe);
+  const replaceData = useDataStore(state => state.replaceCafes);
   const resetData = CafeFormStore(state => state.resetData);
   const closeModal = () => {
     setOpen(false);
     resetData();
   }
   const addCafe = () => {
-    
+    axios.post(BASE_URL + "/api/add", cafe)
+    .then(res => {
+      console.log(res);
+      replaceData(res.data);
+      setOpen(false);
+      resetData()
+    })
   }
   return (
     <>
@@ -46,7 +53,6 @@ const AddCafeForm: React.FC = () => {
           overflowY: 'auto'
         }}>
           <DialogTitle>カフェを追加する</DialogTitle>
-          {/* <DialogContent>必要な項目を入力して追加ボタンを押してください</DialogContent> */}
           <form
             onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
               event.preventDefault();
@@ -61,7 +67,7 @@ const AddCafeForm: React.FC = () => {
               <CafeGoodInput />
               <CafeBadInput />
               <CafeTravelInput />
-              <Button type="submit">追加する</Button>
+              <Button onClick={addCafe}>追加する</Button>
             </Stack>
           </form>
         </ModalDialog>
