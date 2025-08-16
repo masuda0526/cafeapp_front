@@ -4,11 +4,10 @@ import React from "react";
 import { CafeProps } from "@/interface/CafeProps";
 import CafeName from "./CafeName";
 import FoodMenu from "./FoodMenu";
-import CafeAtmo from "./CafeAtmo";
 import Good from "./Good";
 import Bad from "./Bad";
 import { Grid, IconButton } from "@mui/material";
-import EditButton from "./EditButton";
+import IconBox from "./IconBox";
 
 const Item:React.FC<CafeProps> = (props) => {
   return (
@@ -22,13 +21,12 @@ const Item:React.FC<CafeProps> = (props) => {
           cafeAtom={props.atmo}
           isGone={props.isGone}
         />
-        {/* <CafeAtmo atmo={props.atmo} /> */}
         <FoodMenu foodMenu={props.foodMenu}/>
         <Good goodPoints={props.goodPoints} />
         <Bad badPoints={props.badPoints} />
-        <EditButton 
-          _id={props._id}
-        ></EditButton>
+        <IconBox
+          {...props}
+        ></IconBox>
       </div>
     </Grid>
   )

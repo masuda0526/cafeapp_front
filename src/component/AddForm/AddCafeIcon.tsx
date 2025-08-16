@@ -8,7 +8,6 @@ const AddCafeIcon:React.FC = () => {
 
   const [isShow, setIsShow] = useState(false);
   const clickToOpen = () => {
-    console.log('click');
     setIsShow(false);
   }
 
