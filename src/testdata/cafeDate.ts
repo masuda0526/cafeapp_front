@@ -2,7 +2,7 @@ import { CafeProps } from "@/interface/CafeProps";
 
 export const testData: CafeProps[] = [
   {
-    cafeId:'aaa1',
+    _id:'aaa1',
     isGone: false,
     cafeName: "カフェあおぞら",
     cafeCity: "徳島市",
@@ -28,7 +28,7 @@ export const testData: CafeProps[] = [
     }
   },
   {
-    cafeId:'aaa2',
+    _id:'aaa2',
     isGone: false,
     cafeName: "森のこみち珈琲店",
     cafeCity: "神山町",
@@ -54,7 +54,7 @@ export const testData: CafeProps[] = [
     }
   },
   {
-    cafeId:'aaa3',
+    _id:'aaa3',
     isGone: false,
     cafeName: "海辺のキッチン しおかぜ",
     cafeCity: "鳴門市",
@@ -81,7 +81,7 @@ export const testData: CafeProps[] = [
     }
   },
   {
-    cafeId:'aaa4',
+    _id:'aaa4',
     isGone: true,
     cafeName: "珈琲舎みやび",
     cafeCity: "阿南市",
@@ -106,7 +106,7 @@ export const testData: CafeProps[] = [
     }
   },
   {
-    cafeId: 'aaa5',
+    _id: 'aaa5',
     isGone: true,
     cafeName: "山の上コーヒー",
     cafeCity: "美馬市",

@@ -5,13 +5,13 @@ import { TravelTimeProps } from "@/interface/TravelTimeProps";
 
 interface CafeForm {
   currentCafe:CafeProps,
-  setTargetCafe:(cafeId:string|null)=>void,
+  setTargetCafe:(_id:string|null)=>void,
   replaceData:<K extends keyof CafeProps>(key:K, value:CafeProps[K])=>void,
   resetData:()=>void
 }
 
 const defaultCafe: CafeProps = {
-  cafeId: null,
+  _id: null,
   isGone: false,
   cafeName: '',
   cafeCity: '',
@@ -32,7 +32,7 @@ const CafeFormStore = create<CafeForm>((set, get) => ({
   currentCafe:defaultCafe,
   setTargetCafe:(cafeId) => set(() => {
     const cafes = useDataStore.getState().cafes;
-    const target:CafeProps = cafes.filter(cafe => cafe.cafeId === cafeId)[0];
+    const target:CafeProps = cafes.filter(cafe => cafe._id === cafeId)[0];
     return {currentCafe:target}
   }),
   replaceData:(key, val) => set((state) => {

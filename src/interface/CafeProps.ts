@@ -1,7 +1,7 @@
 import { TravelTimeProps } from "./TravelTimeProps"
 
 export interface CafeProps{
-  cafeId:string|null,
+  _id:string|null,
   isGone:boolean,
   cafeName:string,
   cafeCity:string,
