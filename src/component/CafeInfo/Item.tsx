@@ -8,6 +8,7 @@ import Good from "./Good";
 import Bad from "./Bad";
 import { Grid, IconButton } from "@mui/material";
 import IconBox from "./IconBox";
+import CommentArea from "./CommentArea";
 
 const Item:React.FC<CafeProps> = (props) => {
   return (
@@ -24,6 +25,9 @@ const Item:React.FC<CafeProps> = (props) => {
         <FoodMenu foodMenu={props.foodMenu}/>
         <Good goodPoints={props.goodPoints} />
         <Bad badPoints={props.badPoints} />
+        {props.comment?(
+          <CommentArea comment={props.comment}/>
+        ):''}
         <IconBox
           {...props}
         ></IconBox>

@@ -3,23 +3,24 @@ import { useState } from 'react';
 import CafeEditModal from '../AddForm/CafeEditModal';
 import CafeFormStore from '@/store/cafeForm';
 
-interface Props{
-  _id:string|null
+interface Props {
+  _id: string | null
 }
-const EditButton:React.FC<Props> = (props:Props) => {
+const EditButton: React.FC<Props> = (props: Props) => {
   const [isOpen, setOpenFlg] = useState<boolean>(false);
   const setCurrentCafe = CafeFormStore(state => state.setTargetCafe)
-  const clickToEdit = (id:string|null) => {
-    if(id){
+  const clickToEdit = (id: string | null) => {
+    if (id) {
       setCurrentCafe(id);
       setOpenFlg(true);
     }
   }
   return (
-    
+
     <>
       <EditIcon
-        onClick={()=>clickToEdit(props._id)}
+        sx={{ fontSize: 32 , mr:2}}
+        onClick={() => clickToEdit(props._id)}
       ></EditIcon>
       <CafeEditModal
         isOpen={isOpen}
@@ -27,5 +28,5 @@ const EditButton:React.FC<Props> = (props:Props) => {
       ></CafeEditModal>
     </>
   )
-} 
+}
 export default EditButton;

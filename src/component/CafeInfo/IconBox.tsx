@@ -5,7 +5,7 @@ import CommentIcon from "../CommentForm/CommentIcon";
 
 const IconBox : React.FC<CafeProps> = (props) => {
   return (
-    <Box>
+    <Box sx={{p:1}}>
       <EditButton
         _id={props._id}
       ></EditButton>

@@ -20,7 +20,7 @@ const CommentIcon: React.FC<{ _id: string | null }> = (props) => {
 
   return (
     <>
-      <ChatIcon onClick={open} />
+      <ChatIcon onClick={open} sx={{fontSize:32}}/>
       <CommentEditModal
         isOpen={isOpen}
         close={() => close()}/>
