@@ -1,5 +1,6 @@
 'use client'
 
+import { Typography } from "@mui/material";
 import React from "react";
 
 const CafeAtmo:React.FC<{atmo:string}> = (
@@ -7,7 +8,7 @@ const CafeAtmo:React.FC<{atmo:string}> = (
 ) => {
   return (
     <>
-      <p>{atmo}</p>
+      <Typography sx={{fontSize:'12px', marginBottom:'5px'}}>{atmo}</Typography>
     </>
   )
 }

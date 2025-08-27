@@ -2,20 +2,24 @@
 
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
-import { testData } from "@/testdata/cafeDate";
+// import { testData } from "@/testdata/cafeDate";
 import axios from "axios";
-import { CafeProps } from "@/interface/CafeProps";
+// import { CafeProps } from "@/interface/CafeProps";
 import { Grid } from "@mui/material";
 import useDataStore from "@/store/data";
+import { targetCafeFilter } from "../SearchForm/SearchLogic";
+import SearchParamStore from "@/store/SearchParamStore";
+import { API_URL } from "@/constants/site";
 
 const List:React.FC = () => {
   const cafes = useDataStore(state => state.cafes);
   const replaceCafes = useDataStore(state => state.replaceCafes);
+  const searchParam = SearchParamStore(state => state.currentSearchParam);
+  const showCafes = targetCafeFilter(cafes, searchParam);
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/api/cafes')
+    axios.get(API_URL + '/api/cafes')
       .then(res => {
-        console.log(res);
         replaceCafes(res.data);
       })
     // replaceCafes(testData);
@@ -23,7 +27,7 @@ const List:React.FC = () => {
   return (
     <Grid container spacing={1} px={1}>
         {
-          cafes.map((cafe, idx) => (
+          showCafes.map((cafe, idx) => (
             <Item key={idx} {...cafe}/>
           ))
         }

@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.13.5",
@@ -20,6 +21,7 @@
     "@mui/joy": "^5.0.0-beta.52",
     "@mui/material": "^7.3.0",
     "@mui/styled-engine-sc": "^7.3.0",
+    "@next/font": "^14.2.15",
     "axios": "^1.11.0",
     "next": "15.4.2",
     "react": "19.1.0",
@@ -30,7 +32,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.12",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

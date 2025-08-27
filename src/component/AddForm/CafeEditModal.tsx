@@ -14,7 +14,7 @@ import CafeBadInput from './InputComponent/CafeBadInput';
 import CafeTravelInput from './InputComponent/CafeTravelInput';
 import CafeFormStore from '@/store/cafeForm';
 import axios from 'axios';
-import { BASE_URL } from '@/constants/site';
+import { API_URL } from '@/constants/site';
 import useDataStore from '@/store/data';
 import { CafeProps } from "@/interface/CafeProps";
 
@@ -31,9 +31,8 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
     resetData();
   }
   const addCafe = () => {
-    axios.post(BASE_URL + "/api/add", cafe)
+    axios.post(API_URL + "/api/add", cafe)
       .then(res => {
-        console.log(res);
         replaceData(res.data);
         props.onClose();
         resetData()
@@ -41,9 +40,8 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
   }
 
   const updateCafe = () => {
-    axios.post(BASE_URL + "/api/update", cafe)
+    axios.post(API_URL + "/api/update", cafe)
       .then(res => {
-        console.log(res);
         replaceData(res.data);
         props.onClose();
         resetData();

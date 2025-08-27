@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/constants/site";
+import { API_URL } from "@/constants/site";
 import CafeFormStore from "@/store/cafeForm";
 import useDataStore from "@/store/data";
 import Button from "@mui/joy/Button";
@@ -8,6 +8,7 @@ import ModalDialog from "@mui/joy/ModalDialog"
 import Textarea from '@mui/joy/Textarea';
 import axios from "axios";
 import React from "react";
+import IllustSelector from "./IllustSelector";
 
 interface Props {
   isOpen : boolean,
@@ -16,16 +17,18 @@ interface Props {
 const CommentEditModal: React.FC<Props> = (props) => {
   const comment:string|null = CafeFormStore(state => state.currentCafe.comment);
   const cafeId:string|null = CafeFormStore(state => state.currentCafe._id)
+  const iconVal:string|null = CafeFormStore(state => state.currentCafe.icon);
   const replaceData = CafeFormStore(state => state.replaceData);
   const replaceCafe = useDataStore(state => state.replaceCafes);
   const changeVal = (event : React.ChangeEvent<HTMLTextAreaElement>)=>{
     replaceData('comment', event.target.value);
   }
   const postComment = ()=>{
-    axios.post(BASE_URL + '/api/comment', null, {
+    axios.post(API_URL + '/api/comment', null, {
       params:{
         cafe_id:cafeId,
-        comment:comment
+        comment:comment,
+        icon_val:iconVal
       }
     }).then(res => {
       replaceCafe(res.data);
@@ -52,6 +55,7 @@ const CommentEditModal: React.FC<Props> = (props) => {
         onChange={changeVal}
         minRows={10}
       />
+      <IllustSelector></IllustSelector>
       <Button
         size="md"
         variant="solid"

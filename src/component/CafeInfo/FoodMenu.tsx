@@ -2,26 +2,32 @@
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import { Box, List, ListItem, Typography } from "@mui/material";
 
 interface FoodMenuProps {
-  foodMenu:string[]
+  foodMenu: string[]
 }
-const FoodMenu:React.FC<FoodMenuProps> = ({
+const FoodMenu: React.FC<FoodMenuProps> = ({
   foodMenu,
 }) => {
 
   return (
-    <div className="py-1.5">
-      <h3 className="text-lg pb-1"><FontAwesomeIcon icon={faUtensils}/> おすすめメニュー</h3>
-      <ul>
+    <Box sx={{ marginBottom: '3px', paddingTop:'3px'}} >
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <RestaurantIcon sx={{ fontSize: '24px', marginRight: '3px' }} />
+        <Typography variant='h3' sx={{ fontSize: '16px', padding:'0'}}>
+          おすすめメニュー
+        </Typography>
+      </Box>
+      <List sx={{padding:'2px'}}>
         {
           foodMenu.map((food, idx) => (
-            <li key={idx} className="list-disc list-inside">{food}</li>
+            <ListItem sx={{fontSize:'13px', listStyle:'', padding:'0',margin:'0'}} key={idx}>・ {food}</ListItem>
           ))
         }
-      </ul>
-    </div>
+      </List>
+    </Box>
   )
 }
 

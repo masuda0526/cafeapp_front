@@ -8,10 +8,8 @@ const CommentIcon: React.FC<{ _id: string | null }> = (props) => {
   const resetCurrentCafe = CafeFormStore(state => state.resetData);
   const setTargetCafe = CafeFormStore(state => state.setTargetCafe);
   const open = () => {
-    console.log('click open')
     setOpen(true);
     setTargetCafe(props._id);
-    console.log(CafeFormStore.getState().currentCafe)
   }
   const close = () => {
     setOpen(false);
@@ -20,7 +18,7 @@ const CommentIcon: React.FC<{ _id: string | null }> = (props) => {
 
   return (
     <>
-      <ChatIcon onClick={open} sx={{fontSize:32}}/>
+      <ChatIcon onClick={open} sx={{fontSize:32, mr:2}}/>
       <CommentEditModal
         isOpen={isOpen}
         close={() => close()}/>

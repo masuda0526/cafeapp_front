@@ -3,22 +3,26 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { Box, List, ListItem, Typography } from "@mui/material";
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 
 const Bad:React.FC<{badPoints:string[]}> = ({badPoints}) => {
   return (
-    <div className="py-1.5">
-      <h3 className="text-lg">
-        <FontAwesomeIcon icon={faThumbsDown} className="pr-1"/>
+    <Box sx={{ marginBottom: '3px'}} >
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <ThumbDownAltIcon sx={{ fontSize: '24px', marginRight: '3px' }}/>
+      <Typography variant='h3' sx={{ fontSize: '16px', padding:'0'}}>
         悪い点
-      </h3>
-      <ul>
+      </Typography>
+      </Box>
+      <List sx={{padding:'2px'}}>
         {
           badPoints.map((point,idx) => (
-            <li key={idx} className="list-disc list-inside">{point}</li>
+            <ListItem sx={{fontSize:'13px', listStyle:'', padding:'0',margin:'0'}} key={idx} >・ {point}</ListItem>
           ))
         }
-      </ul>
-    </div>
+      </List>
+    </Box>
   )
 }
 

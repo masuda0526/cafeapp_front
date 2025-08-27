@@ -1,0 +1,52 @@
+import { Illustration } from "@/interface/Illustration";
+
+export const illustrationDatas:Illustration[] = [
+  {
+    id:"00",
+    value:"00",
+    fileName:"",
+    showName:"イラストを選択してください。"
+  },
+  {
+    id:"01",
+    value:"01",
+    fileName:"cat_hanmokku_only_border.png",
+    showName:"ハンモックでくつろぐネコ"
+  },
+  {
+    id:"02",
+    value:"02",
+    fileName:"cat_banzai_border.png",
+    showName:"よろこぶネコ"
+  },
+  {
+    id:"03",
+    value:"03",
+    fileName:"cat_hohoemi_border.png",
+    showName:"ほほえむネコ"
+  },
+  {
+    id:"04",
+    value:"04",
+    fileName:"cat_kyoton_border.png",
+    showName:"ぼーっとするネコ"
+  },
+  {
+    id:"05",
+    value:"05",
+    fileName:"cat_nayamu_border.png",
+    showName:"なやむネコ"
+  },
+  {
+    id:"06",
+    value:"06",
+    fileName:"cat_walk_border.png",
+    showName:"歩くネコ"
+  },
+  {
+    id:"08",
+    value:"08",
+    fileName:"cat_skip_border.png",
+    showName:"スキップするネコ"
+  }
+]

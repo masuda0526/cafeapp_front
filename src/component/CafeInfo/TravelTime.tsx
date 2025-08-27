@@ -5,6 +5,7 @@ import { TravelTimeProps } from "@/interface/TravelTimeProps";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCar } from "@fortawesome/free-solid-svg-icons";
 import { faPersonWalking } from "@fortawesome/free-solid-svg-icons";
+import { Box } from "@mui/material";
 
 interface Props{
   cafeCity:string,
@@ -25,15 +26,33 @@ const TravelTime : React.FC<Props> = (props) => {
 
   return (
     <>
-      <div className="text-xl text-right relative top-1">
-        <div className="bg-amber-600/50 w-9/12 h-0.5 absolute"></div>
-        <div className="absolute right-0 -top-6.5">
+      <Box sx={{
+        position:'relative',
+        top:'-5px',
+        fontSize:'20px',
+        textAlign:'right'
+      }}>
+        <Box sx={{
+          backgroundColor:"#F0BD88",
+          width:'80%',
+          height:'2px',
+          position:'absolute'
+          }}></Box>
+        <Box sx={{
+          position:'absolute',
+          right:0,
+          top:'-25px'
+        }} >
           {icon}{' ' + minutes}分
-        </div>　
-        <div className="absolute right-0 -top-1">
+        </Box>
+        <Box sx={{
+          position:'absolute',
+          right:0,
+          top:'-5px'
+        }}>
           {city}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   )
 }

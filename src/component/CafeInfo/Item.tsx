@@ -6,14 +6,22 @@ import CafeName from "./CafeName";
 import FoodMenu from "./FoodMenu";
 import Good from "./Good";
 import Bad from "./Bad";
-import { Grid, IconButton } from "@mui/material";
+import { Box, Grid, IconButton } from "@mui/material";
 import IconBox from "./IconBox";
 import CommentArea from "./CommentArea";
 
 const Item:React.FC<CafeProps> = (props) => {
   return (
     <Grid size={{xs:12, md:6}}>
-      <div className="p-2 border-2 border-amber-700/50 rounded-md shadow-md mb-3 ax-w-md mx-auto text-sm text-amber-950">
+      <Box sx={{
+        padding:1,
+        border:2,
+        borderRadius:2,
+        borderColor:'#AD6C3D',
+        boxShadow:'0px 4px 8px rgba(0, 0, 0, 0.2)',
+        color:'#663F24',
+        fontSize:'14px'
+      }}>
         <CafeName 
           _id={props._id}
           cafeName={props.cafeName} 
@@ -26,12 +34,12 @@ const Item:React.FC<CafeProps> = (props) => {
         <Good goodPoints={props.goodPoints} />
         <Bad badPoints={props.badPoints} />
         {props.comment?(
-          <CommentArea comment={props.comment}/>
+          <CommentArea comment={props.comment} iconVal={props.icon}/>
         ):''}
         <IconBox
           {...props}
         ></IconBox>
-      </div>
+      </Box>
     </Grid>
   )
 }

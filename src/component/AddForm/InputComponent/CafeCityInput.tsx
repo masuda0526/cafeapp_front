@@ -18,7 +18,6 @@ const CafeCityInput:React.FC = () => {
       }else{
         replaceCafeCity('cafeCity', '');
       }
-    console.log(CafeFormStore.getState().currentCafe);
   }
 
   return (
