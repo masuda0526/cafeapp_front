@@ -13,7 +13,6 @@ const RadiusCheckBoxVisual : React.FC<Props> = (props) => {
     }
   }
   const handleClick = () =>{
-    console.log('child click');
     outerFunc();
   }
 

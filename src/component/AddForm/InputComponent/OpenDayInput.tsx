@@ -11,11 +11,10 @@ import CafeFormStore from "@/store/cafeForm";
 const OpenDayInput: React.FC = () => {
   const openDay = CafeFormStore(state => state.currentCafe.openDay);
   const replaceData = CafeFormStore(state => state.replaceData);
-  const [memo, setMemo] = useState<string>(openDay.memo);
+  const memo : string = openDay.memo;
   const handleChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     const eventVal = event.target.value;
-    setMemo(eventVal);
-    replaceData('openDay', {...openDay, memo:memo})
+    replaceData('openDay', {...openDay, memo:eventVal})
   }
 
   return (

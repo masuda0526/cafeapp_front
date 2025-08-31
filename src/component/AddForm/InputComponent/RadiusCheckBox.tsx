@@ -11,7 +11,7 @@ const RadiusCheckBox: React.FC<Props> = (props) => {
   const openDay = CafeFormStore(state => state.currentCafe.openDay);
   const replaceData = CafeFormStore(state => state.replaceData);
   const initialBool = openDay.openDays.includes(props.val);
-  console.log(`day:${props.day} val:${props.val} isInclude:${initialBool}`)
+  // console.log(`day:${props.day} val:${props.val} isInclude:${initialBool}`)
   // 初期設定
   const [isSelect, setSelectFlg] = useState<boolean>(initialBool);
   // 置換処理
@@ -28,7 +28,7 @@ const RadiusCheckBox: React.FC<Props> = (props) => {
   const handleClick = () => {
     replaceDay();
     setSelectFlg(!isSelect)
-    console.log(openDay);
+    // console.log(openDay);
   }
   return (
     <RadiusCheckBoxVisual parentFlg={initialBool} viewVal={props.day} parentFunc={() => handleClick()}/>

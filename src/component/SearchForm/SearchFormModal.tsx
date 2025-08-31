@@ -9,6 +9,7 @@ import FilterAltOffIcon from '@mui/icons-material/FilterAltOff';
 import SearchCityCheckBox from "./SearchCityCheckBox";
 import SearchCommentToggle from "./SearchCommentToggle";
 import SearchGoneToggle from "./SearchGoneToggle";
+import SearchOpenDayForm from "./SearchOpenDayForm";
 
 interface Props {
   isOpen: boolean
@@ -26,6 +27,7 @@ const SearchFormModal: React.FC<Props> = (props) => {
       >
         <Typography>カフェの絞り込み</Typography>
         <SearchTextInput />
+        <SearchOpenDayForm/>
         <SearchGoneToggle />
         <SearchCommentToggle/>
         <SearchCityCheckBox/>

@@ -1,6 +1,7 @@
 import { CafeProps } from "@/interface/CafeProps";
 import SearchParam from "@/interface/SearchParam";
 import { hasComenntStat } from "./ParamStat";
+import CafeOpenDay from "../CafeInfo/CafeOpenDay";
 
 export const targetCafeFilter = (cafes : CafeProps[], param:SearchParam):CafeProps[] => {
   return cafes.filter(cafe => isTarget(cafe, param));
@@ -11,6 +12,7 @@ const isTarget = (cafe : CafeProps, param:SearchParam):boolean => {
   if(!isTargetCity(cafe, param)){return false}
   if(!isTargetHasComment(cafe, param)){return false}
   if(!isTargetGone(cafe, param)){return false}
+  if(!isTargetDay(cafe, param)){return false}
   return true;
 }
 
@@ -56,4 +58,34 @@ const isTargetGone = (cafe:CafeProps, param:SearchParam):boolean => {
  }
  return true;
 
+}
+
+const isTargetDay = (cafe:CafeProps, param:SearchParam):boolean => {
+  // 選択されていなければ、全て表示
+  if(param.tgOpenDays.length === 0){
+    return true
+  }
+
+  const cafeCloseDays = cafe.openDay.openDays;
+  if(cafeCloseDays.length === 0){
+    return true
+  }
+
+  const tgDays = param.tgOpenDays;
+  if(param.tgAndSearch){
+    // 選択された曜日全て営業しているか
+    for(let n of tgDays){
+      if(cafe.openDay.openDays.includes(n)){
+        return false;
+      }
+    }
+  }else{
+    // 選択された曜日のどれか１つが営業している
+    for(let n of tgDays){
+      if(!cafeCloseDays.includes(n)){
+        return true;
+      }
+    }
+  }
+  return false;
 }

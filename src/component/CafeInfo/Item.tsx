@@ -23,12 +23,7 @@ const Item:React.FC<CafeProps> = (props) => {
         fontSize:'14px'
       }}>
         <CafeName 
-          _id={props._id}
-          cafeName={props.cafeName} 
-          cafeCity={props.cafeCity} 
-          travelTimeProps={props.travelTime}
-          cafeAtom={props.atmo}
-          isGone={props.isGone}
+          {...props}
         />
         <FoodMenu foodMenu={props.foodMenu}/>
         <Good goodPoints={props.goodPoints} />

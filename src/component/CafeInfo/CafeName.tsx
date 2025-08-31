@@ -11,6 +11,8 @@ import axios from "axios";
 import { API_URL } from "@/constants/site";
 import useDataStore from "@/store/data";
 import { Box, Typography } from "@mui/material";
+import { CafeProps } from "@/interface/CafeProps";
+import CafeOpenDay from "./CafeOpenDay";
 
 interface Props{
   _id:string|null
@@ -20,7 +22,7 @@ interface Props{
   cafeAtom:string,
   isGone:boolean
 }
-const CafeName:React.FC<Props> = (props) => {
+const CafeName:React.FC<CafeProps> = (props) => {
   const replaceCafes = useDataStore(state => state.replaceCafes);
   const clickToToggle = () => {
     axios.get(API_URL + '/api/toggle/gone', {
@@ -33,7 +35,7 @@ const CafeName:React.FC<Props> = (props) => {
     })
   }
   return (
-    <Box >
+    <Box sx={{marginBottom:'5px'}}>
       <Typography variant="h3" 
         sx={{
           textDecoration:'underline',
@@ -47,8 +49,9 @@ const CafeName:React.FC<Props> = (props) => {
         }
         {props.cafeName}
       </Typography>
-      <CafeAtmo atmo={props.cafeAtom}/>
-      <TravelTime  cafeCity={decode(props.cafeCity)} travelTimeProps={props.travelTimeProps}/>
+      <CafeAtmo atmo={props.atmo}/>
+      <TravelTime  cafeCity={decode(props.cafeCity)} travelTimeProps={props.travelTime}/>
+      <CafeOpenDay {...props}/>
     </Box>
   )
 }

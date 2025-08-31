@@ -30,7 +30,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
   const closeModal = () => {
     props.onClose();
     resetData();
-    console.log(cafe);
+    // console.log(cafe);
   }
   const addCafe = () => {
     axios.post(API_URL + "/api/add", cafe)

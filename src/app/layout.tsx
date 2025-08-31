@@ -35,7 +35,7 @@ const Yomogi400 = Yomogi({
 //     body:Yomogi400.style.fontFamily
 //   }
 // })
-console.log(Yomogi400);
+// console.log(Yomogi400);
 export default function RootLayout({
   children,
 }: {
