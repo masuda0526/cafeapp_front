@@ -17,6 +17,7 @@ import axios from 'axios';
 import { API_URL } from '@/constants/site';
 import useDataStore from '@/store/data';
 import { CafeProps } from "@/interface/CafeProps";
+import OpenDayInput from './InputComponent/OpenDayInput';
 
 interface Props {
   isOpen: boolean,
@@ -29,6 +30,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
   const closeModal = () => {
     props.onClose();
     resetData();
+    console.log(cafe);
   }
   const addCafe = () => {
     axios.post(API_URL + "/api/add", cafe)
@@ -71,6 +73,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
           <Stack spacing={1}>
             <CafeNameInput />
             <CafeAtomInput />
+            <OpenDayInput />
             <CafeCityInput />
             <FoodMenuInput />
             <CafeGoodInput />
