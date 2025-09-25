@@ -11,5 +11,5 @@ export const getIllustData = (iconVal:string|null):Illustration|undefined => {
 export const getIllustUrl:(iconVal:string|null) => string = (iconVal:string|null) => {
   const illust = getIllustData(iconVal);
   if (!illust || !illust.fileName) return '';
-  return `${IMG_URL}/cat_img/${illust.fileName}`
+  return `/cat_img/${illust.fileName}`
 }

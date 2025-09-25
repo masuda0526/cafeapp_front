@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import AspectRatio from "@mui/joy/AspectRatio";
 import { IMG_URL } from "@/constants/site";
 import { getIllustData, getIllustUrl } from "@/util/IllustUtil";
+import Image from "next/image";
 
 interface Props {
   comment: string | null,
@@ -37,7 +38,12 @@ const CommentArea: React.FC<Props> = (props:Props) => {
           {props.comment}
           {isShowImg?(
           <AspectRatio variant="plain" ratio="1" sx={{width:'75px',position:'absolute', right:'0', bottom:'0'}}>
-            <img src={getIllustUrl(props.iconVal)} />
+            <Image 
+              src={imgUrl}
+              alt="ねこ"
+              layout="fill"
+            ></Image>
+            {/* <img src={getIllustUrl(props.iconVal)} /> */}
           </AspectRatio>
           ):''}
         </Box>
