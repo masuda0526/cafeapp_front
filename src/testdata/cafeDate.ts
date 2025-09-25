@@ -7,7 +7,10 @@ export const testData: CafeProps[] = [
     cafeName: "カフェあおぞら",
     cafeCity: "徳島市",
     foodMenu: ["パスタ", "チーズケーキ"],
-    time: "10:00〜18:00",
+    openDay: {
+      openDays:[],
+      memo:''
+    },
     atmo: "明るくて開放的",
     goodPoints: [
       "スタッフが親切",
@@ -33,7 +36,10 @@ export const testData: CafeProps[] = [
     cafeName: "森のこみち珈琲店",
     cafeCity: "神山町",
     foodMenu: ["カレー", "ガトーショコラ"],
-    time: "11:00〜17:00",
+    openDay: {
+      openDays:[0,6,7],
+      memo:''
+    },
     atmo: "森の中の静かな空間",
     goodPoints: [
       "自然に囲まれて落ち着ける",
@@ -59,7 +65,10 @@ export const testData: CafeProps[] = [
     cafeName: "海辺のキッチン しおかぜ",
     cafeCity: "鳴門市",
     foodMenu: ["シーフードパスタ", "レモンタルト"],
-    time: "9:30〜16:00",
+    openDay: {
+      openDays:[],
+      memo:'不定休あり'
+    },
     atmo: "海が見える爽やかな空間",
     goodPoints: [
       "景色が最高",
@@ -86,7 +95,10 @@ export const testData: CafeProps[] = [
     cafeName: "珈琲舎みやび",
     cafeCity: "阿南市",
     foodMenu: ["ナポリタン", "ミックスサンド"],
-    time: "9:00〜15:00",
+    openDay: {
+      openDays:[3,4],
+      memo:''
+    },
     atmo: "レトロで落ち着く",
     goodPoints: [
       "昭和風の雰囲気が良い",
@@ -111,7 +123,10 @@ export const testData: CafeProps[] = [
     cafeName: "山の上コーヒー",
     cafeCity: "美馬市",
     foodMenu: ["ホットサンド", "チョコレートケーキ"],
-    time: "8:00〜14:00",
+    openDay: {
+      openDays:[7],
+      memo:''
+    },
     atmo: "静かでのんびりできる山の上の隠れ家",
     goodPoints: [
       "空気がきれい",
