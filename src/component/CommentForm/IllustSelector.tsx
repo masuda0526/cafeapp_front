@@ -46,15 +46,12 @@ const IllustSelector: React.FC = () => {
           <AspectRatio ratio="1" variant="plain">
             <Image
               src={`/cat_img/${illustData.fileName}`}
+              sizes="100vm"
               // width={100}
               // height={100}
               alt={illustData.showName}
-              layout="fill"
+              fill
             ></Image>
-            {/* <img
-              src={`${IMG_URL}/cat_img/${illustData.fileName}`}
-              alt={illustData.showName}
-            /> */}
           </AspectRatio>
         )}
       </FormControl>

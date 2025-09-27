@@ -6,5 +6,5 @@ export const SITE_TITLE = "CAFE APP";
 // export const API_URL = `${HOST_URL}:8000` // 開発用コンテナへ接続
 // 本番環境用設定
 export const HOST_URL = `https://m-pitti.click`;
-export const IMG_URL = `${HOST_URL}:443/cafe-app`;
+export const IMG_URL = `https://cafeapp-rose.vercel.app`;
 export const API_URL = `${HOST_URL}:443/cafe-api`

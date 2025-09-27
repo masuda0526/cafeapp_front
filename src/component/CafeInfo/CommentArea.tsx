@@ -40,8 +40,7 @@ const CommentArea: React.FC<Props> = (props:Props) => {
           <AspectRatio variant="plain" ratio="1" sx={{width:'75px',position:'absolute', right:'0', bottom:'0'}}>
             <Image 
               src={imgUrl}
-              alt="ねこ"
-              layout="fill"
+              alt="ねこ" fill
             ></Image>
             {/* <img src={getIllustUrl(props.iconVal)} /> */}
           </AspectRatio>

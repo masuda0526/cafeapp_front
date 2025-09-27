@@ -44,9 +44,27 @@ export const illustrationDatas:Illustration[] = [
     showName:"歩くネコ"
   },
   {
-    id:"08",
-    value:"08",
+    id:"07",
+    value:"07",
     fileName:"cat_skip_border.png",
     showName:"スキップするネコ"
+  },
+  {
+    id:"08",
+    value:"08",
+    fileName:"cat_angry_border.png",
+    showName:"怒っているネコ"
+  },
+  {
+    id:"09",
+    value:"09",
+    fileName:"cat_wvsign_border.png",
+    showName:"イェーイなネコ"
+  },
+  {
+    id:"10",
+    value:"10",
+    fileName:"cat_coffer_border.png",
+    showName:"コーヒーの香りを楽しむネコ"
   }
 ]
