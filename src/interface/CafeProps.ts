@@ -2,7 +2,7 @@ import OpenDay from "./OpenDay"
 import { TravelTimeProps } from "./TravelTimeProps"
 
 export interface CafeProps{
-  _id:string|null,
+  id:string|null,
   isGone:boolean,
   cafeName:string,
   openDay: OpenDay

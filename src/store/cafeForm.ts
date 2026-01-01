@@ -12,7 +12,7 @@ interface CafeForm {
 }
 
 const defaultCafe = ():CafeProps => ({
-  _id: null,
+  id: null,
   isGone: false,
   cafeName: '',
   cafeCity: '',
@@ -33,7 +33,7 @@ const CafeFormStore = create<CafeForm>((set, get) => ({
   currentCafe:defaultCafe(),
   setTargetCafe:(cafeId) => set(() => {
     const cafes = useDataStore.getState().cafes;
-    const target:CafeProps = cafes.filter(cafe => cafe._id === cafeId)[0];
+    const target:CafeProps = cafes.filter(cafe => cafe.id === cafeId)[0];
     return {currentCafe:target}
   }),
   replaceData:(key, val) => set((state) => {

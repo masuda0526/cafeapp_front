@@ -3,7 +3,7 @@ import useDataStore from '@/store/data';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 interface Props{
-  _id:string|null,
+  id:string|null,
   cafeName:string
 }
 const DeleteBtn : React.FC<Props> = (props)=> {
@@ -22,7 +22,7 @@ const DeleteBtn : React.FC<Props> = (props)=> {
   return(
     <DeleteIcon
       sx={{fontSize:32, mr:2, color:'#a52a2a'}}
-     onClick={() => handleClick(props._id)}/>
+     onClick={() => handleClick(props.id)}/>
   )
 }
 export default DeleteBtn;

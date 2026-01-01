@@ -18,9 +18,10 @@ const List:React.FC = () => {
   const showCafes = targetCafeFilter(cafes, searchParam);
 
   useEffect(()=>{
-    axios.get(API_URL + '/api/cafes')
+    axios.get(API_URL + '/cafes')
       .then(res => {
-        replaceCafes(res.data);
+        // console.log(res.data);
+        replaceCafes(res.data.data.cafes);
       })
     // replaceCafes(testData);
   }, [])
@@ -28,7 +29,7 @@ const List:React.FC = () => {
     <Grid container spacing={1} px={1}>
         {
           showCafes.map((cafe, idx) => (
-            <Item key={idx} {...cafe}/>
+            <Item key={cafe.id} {...cafe}/>
           ))
         }
     </Grid>

@@ -8,14 +8,14 @@ const IconBox : React.FC<CafeProps> = (props) => {
   return (
     <Box sx={{p:1}}>
       <DeleteBtn 
-        _id={props._id}
+        id={props.id}
         cafeName={props.cafeName}
       />
       <EditButton
-        _id={props._id}
+        id={props.id}
       ></EditButton>
       <CommentIcon
-        _id={props._id}
+        id={props.id}
         ></CommentIcon>
     </Box>
   )

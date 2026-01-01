@@ -33,9 +33,9 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
     // console.log(cafe);
   }
   const addCafe = () => {
-    axios.post(API_URL + "/api/add", cafe)
+    axios.post(API_URL + "/add", cafe)
       .then(res => {
-        replaceData(res.data);
+        replaceData(res.data.data.cafes);
         props.onClose();
         resetData()
       })
@@ -51,7 +51,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
   }
 
   const click = () => {
-    if(cafe._id){
+    if(cafe.id){
       updateCafe();
     }else{
       addCafe();
@@ -63,7 +63,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
       <ModalDialog sx={{
         overflowY: 'auto'
       }}>
-        <DialogTitle>{cafe._id?'カフェを修正':'カフェを追加'}</DialogTitle>
+        <DialogTitle>{cafe.id?'カフェを修正':'カフェを追加'}</DialogTitle>
         <form
           onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
@@ -79,7 +79,7 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
             <CafeGoodInput />
             <CafeBadInput />
             <CafeTravelInput />
-            <Button onClick={click}>{cafe._id?'修正する':'追加する'}</Button>
+            <Button onClick={click}>{cafe.id?'修正する':'追加する'}</Button>
           </Stack>
         </form>
       </ModalDialog>
