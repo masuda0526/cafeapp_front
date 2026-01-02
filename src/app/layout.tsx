@@ -1,6 +1,7 @@
 import "./globals.css";
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import { Metadata } from "next";
 import { Yomogi } from 'next/font/google'
 // import localFont from 'next/font/local';
 config.autoAddCss = false
@@ -11,6 +12,11 @@ const Yomogi400 = Yomogi({
   preload: true,
   display: 'swap'
 })
+
+export const metadata: Metadata = {
+  title: "CafeApp",
+  description: "カフェを管理するアプリです",
+};
 
 // const Yomogi400 = localFont({
 //   src:'../../public/fonts/Yomogi-Regular.ttf',
