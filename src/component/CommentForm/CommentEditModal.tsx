@@ -31,7 +31,7 @@ const CommentEditModal: React.FC<Props> = (props) => {
     }
     axios.post(API_URL + '/comment', params)
     .then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       replaceCafe(res.data.data.cafes);
       props.close();
     })
