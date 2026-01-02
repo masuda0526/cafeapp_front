@@ -11,27 +11,28 @@ import React from "react";
 import IllustSelector from "./IllustSelector";
 
 interface Props {
-  isOpen : boolean,
-  close : () => void
+  isOpen: boolean,
+  close: () => void
 }
 const CommentEditModal: React.FC<Props> = (props) => {
-  const comment:string|null = CafeFormStore(state => state.currentCafe.comment);
-  const cafeId:string|null = CafeFormStore(state => state.currentCafe._id)
-  const iconVal:string|null = CafeFormStore(state => state.currentCafe.icon);
+  const comment: string | null = CafeFormStore(state => state.currentCafe.comment);
+  const cafeId: string | null = CafeFormStore(state => state.currentCafe.id)
+  const iconVal: string | null = CafeFormStore(state => state.currentCafe.icon);
   const replaceData = CafeFormStore(state => state.replaceData);
   const replaceCafe = useDataStore(state => state.replaceCafes);
-  const changeVal = (event : React.ChangeEvent<HTMLTextAreaElement>)=>{
+  const changeVal = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     replaceData('comment', event.target.value);
   }
-  const postComment = ()=>{
-    axios.post(API_URL + '/api/comment', null, {
-      params:{
-        cafe_id:cafeId,
-        comment:comment,
-        icon_val:iconVal
-      }
-    }).then(res => {
-      replaceCafe(res.data);
+  const postComment = () => {
+    const params = {
+      cafe_id: cafeId,
+      comment: comment,
+      icon_val: iconVal
+    }
+    axios.post(API_URL + '/comment', params)
+    .then(res => {
+      console.log(res.data);
+      replaceCafe(res.data.data.cafes);
       props.close();
     })
   }
@@ -46,24 +47,24 @@ const CommentEditModal: React.FC<Props> = (props) => {
         layout="center"
         size="lg"
         variant="outlined">
-          <DialogTitle>コメントを追加</DialogTitle>
+        <DialogTitle>コメントを追加</DialogTitle>
         <Textarea
-        name="Warning"
-        variant="outlined"
-        color="warning"
-        value={comment?comment:""}
-        onChange={changeVal}
-        minRows={10}
-      />
-      <IllustSelector></IllustSelector>
-      <Button
-        size="md"
-        variant="solid"
-        color="warning"
-        onClick={() => postComment()}>
+          name="Warning"
+          variant="outlined"
+          color="warning"
+          value={comment ? comment : ""}
+          onChange={changeVal}
+          minRows={10}
+        />
+        <IllustSelector></IllustSelector>
+        <Button
+          size="md"
+          variant="solid"
+          color="warning"
+          onClick={() => postComment()}>
           コメントする
         </Button>
-        </ModalDialog>
+      </ModalDialog>
     </Modal>
   )
 }

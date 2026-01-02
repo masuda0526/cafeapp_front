@@ -14,44 +14,42 @@ import { Box, Typography } from "@mui/material";
 import { CafeProps } from "@/interface/CafeProps";
 import CafeOpenDay from "./CafeOpenDay";
 
-interface Props{
-  _id:string|null
-  cafeName:string,
-  cafeCity:string,
-  travelTimeProps:TravelTimeProps,
-  cafeAtom:string,
-  isGone:boolean
+interface Props {
+  id: string | null
+  cafeName: string,
+  cafeCity: string,
+  travelTimeProps: TravelTimeProps,
+  cafeAtom: string,
+  isGone: boolean
 }
-const CafeName:React.FC<CafeProps> = (props) => {
+const CafeName: React.FC<CafeProps> = (props) => {
   const replaceCafes = useDataStore(state => state.replaceCafes);
   const clickToToggle = () => {
-    axios.get(API_URL + '/api/toggle/gone', {
-      params:{
-        cafe_id:props._id,
-        isGone:props.isGone
-      }
+    axios.post(API_URL + '/toggle', {
+      cafe_id: props.id,
+      isGone: props.isGone
     }).then(res => {
-      replaceCafes(res.data);
+      replaceCafes(res.data.data.cafes);
     })
   }
   return (
-    <Box sx={{marginBottom:'5px'}}>
-      <Typography variant="h3" 
+    <Box sx={{ marginBottom: '5px' }}>
+      <Typography variant="h3"
         sx={{
-          textDecoration:'underline',
-          fontSize:'20px',
-          marginBottom:'5px',
-          fontFamily:'Yomogi'
+          textDecoration: 'underline',
+          fontSize: '20px',
+          marginBottom: '5px',
+          fontFamily: 'Yomogi'
         }}>
-        {props.isGone?
-          <CheckCircleIcon onClick={clickToToggle}/>:
-          <RadioButtonUncheckedIcon onClick={clickToToggle}/>
+        {props.isGone ?
+          <CheckCircleIcon onClick={clickToToggle} /> :
+          <RadioButtonUncheckedIcon onClick={clickToToggle} />
         }
         {props.cafeName}
       </Typography>
-      <CafeAtmo atmo={props.atmo}/>
-      <TravelTime  cafeCity={decode(props.cafeCity)} travelTimeProps={props.travelTime}/>
-      <CafeOpenDay {...props}/>
+      <CafeAtmo atmo={props.atmo} />
+      <TravelTime cafeCity={decode(props.cafeCity)} travelTimeProps={props.travelTime} />
+      <CafeOpenDay {...props} />
     </Box>
   )
 }

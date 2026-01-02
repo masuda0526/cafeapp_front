@@ -42,9 +42,9 @@ const CafeEditModal: React.FC<Props> = (props: Props) => {
   }
 
   const updateCafe = () => {
-    axios.post(API_URL + "/api/update", cafe)
+    axios.post(API_URL + "/update", cafe)
       .then(res => {
-        replaceData(res.data);
+        replaceData(res.data.data.cafes);
         props.onClose();
         resetData();
       })

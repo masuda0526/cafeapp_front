@@ -6,7 +6,7 @@ import OpenDay from "@/interface/OpenDay";
 
 interface CafeForm {
   currentCafe:CafeProps,
-  setTargetCafe:(_id:string|null)=>void,
+  setTargetCafe:(id:string|null)=>void,
   replaceData:<K extends keyof CafeProps>(key:K, value:CafeProps[K])=>void,
   resetData:()=>void
 }
