@@ -2,10 +2,8 @@ import { Illustration } from "@/interface/Illustration"
 import { illustrationDatas } from "@/testdata/IllustrationData"
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material"
 import AspectRatio from '@mui/joy/AspectRatio';
-import React, { useEffect, useState } from "react"
-import { IMG_URL } from "@/constants/site";
+import React, { useState } from "react"
 import CafeFormStore from "@/store/cafeForm";
-import Image from "next/image";
 
 const IllustSelector: React.FC = () => {
   const illustDatas: Illustration[] = illustrationDatas;
@@ -44,14 +42,13 @@ const IllustSelector: React.FC = () => {
         </Select>
         {illustData.value === '00' ? '' : (
           <AspectRatio ratio="1" variant="plain">
-            <Image
+            <img
               src={`/cat_img/${illustData.fileName}`}
               sizes="100vm"
               // width={100}
               // height={100}
               alt={illustData.showName}
-              fill
-            ></Image>
+            ></img>
           </AspectRatio>
         )}
       </FormControl>
